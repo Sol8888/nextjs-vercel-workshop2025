@@ -1,6 +1,16 @@
 import Image from "next/image";
 import ProductTable from "@/components/ProductTable"
-export default function Home() {
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
+
+export default async function Home() {
+  
+  const session = await auth();
+
+  // 2) Si NO hay sesión, mandar a la ruta de signin de Auth.js
+  if (!session) {
+    redirect("/api/auth/signin");
+  }
  return (
   <main>
     Hello There
