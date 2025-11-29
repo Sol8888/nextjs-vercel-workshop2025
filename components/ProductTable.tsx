@@ -1,7 +1,7 @@
 "use client";
-
 import { Product } from "@/types/product";
 import { useEffect, useState } from "react";
+import React from "react";
 
 const ProductTable = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -12,7 +12,6 @@ const ProductTable = () => {
       const data = await response.json();
       setProducts(data);
     };
-
     fetchData();
   }, []);
 
@@ -38,10 +37,7 @@ const ProductTable = () => {
           <tbody>
             {products.length === 0 ? (
               <tr>
-                <td
-                  colSpan={2}
-                  className="px-6 py-4 text-center text-gray-500"
-                >
+                <td colSpan={2} className="px-6 py-4 text-center text-gray-500">
                   No products found.
                 </td>
               </tr>
