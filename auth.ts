@@ -7,7 +7,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       name: "Auth0",
       clientId: process.env.AUTH_AUTH0_ID,
       clientSecret: process.env.AUTH_AUTH0_SECRET,
-      issuer: `https://${process.env.AUTH_AUTH0_DOMAIN}/`,
+      issuer: `https://${process.env.AUTH_AUTH0_DOMAIN}`,
     }),
   ],
 });
